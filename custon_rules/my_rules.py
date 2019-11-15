@@ -7,9 +7,16 @@ class BodyWithTwoParagraphs(CommitRule):
    
     def validate(self, commit):
         count = 0
-        for line in commit.message.body:
-            count += 1
-            if count > 2:
-                return
+        #print(commit.message.body)
 
-        return [RuleViolation(self.id, "Body has no paragraphs", line_nr=1)]
+        for line in commit.message.body:
+            if (line == ''):
+                count += 1
+
+            if (count > 2 and line == 'See:'):
+                return     
+
+        return self.violation(self.id)
+
+    def violation(self, id):
+        return [RuleViolation(id, "Body needs to have at least two paragraphs", line_nr=1)]
