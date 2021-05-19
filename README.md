@@ -4,15 +4,35 @@
 
 + https://pre-commit.com/#intro
 
-
+```
 sudo apt-get install gitlint
+```
+## Custon rules
 
+```
 gitlint --extra-path=custon_rules/
+```
 
-gitlint --config myconfigfile.ini    
+## Configuring current rules
 
-cat commit-message | gitlint --config myconfigfile.ini 
+```
+gitlint --config myconfigfile.ini   
+```
 
+### Good commit message
+
+```
+cat good-commit-message | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+```
+
+### Bad commits
+
+```
+echo "This is a bad commit message" | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+
+
+cat bad-commit-message | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+```
 
 ## Hooks
 

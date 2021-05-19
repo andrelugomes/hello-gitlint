@@ -13,7 +13,7 @@ class BodyWithTwoParagraphs(CommitRule):
             if (line == ''):
                 count += 1
 
-            if (count > 2 and line == 'See:'):
+            if (count > 2 and line == 'Links:'):
                 return     
 
         return self.violation(self.id)
