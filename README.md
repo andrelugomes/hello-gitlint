@@ -10,11 +10,16 @@ sudo apt-get install gitlint
 ## Custon rules
 
 ```
-gitlint --extra-path=custon_rules/
+gitlint --extra-path=custon_rules
 ```
 
 ## Configuring current rules
+Set up --extra-path inside `myconfigfile.ini`
 
+```
+extra-path=custon_rules/
+```
+Run
 ```
 gitlint --config myconfigfile.ini   
 ```
@@ -22,25 +27,29 @@ gitlint --config myconfigfile.ini
 ### Good commit message
 
 ```
-cat good-commit-message | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+cat good-commit-message | gitlint --config myconfigfile.ini 
 ```
 
 ### Bad commits
 
 ```
-echo "This is a bad commit message" | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+echo "This is a bad commit message" | gitlint --config myconfigfile.ini 
 
 
-cat bad-commit-message | gitlint --extra-path=custon_rules --config myconfigfile.ini 
+cat bad-commit-message | gitlint --config myconfigfile.ini 
 ```
 
 ## Hooks
 
+```bash
 gitlint install-hook  
-pip install pre-commit 
-pre-commit install --hook-type commit-msg
 
+pip install pre-commit gitlint
+
+pre-commit install --hook-type commit-msg
 ```
+
+```text
   ~/workspace/hello-gitlint |   master +8 !4 ····································
 ❯ git commit -m "commit without body"
 [WARNING] Unstaged files detected.
@@ -51,5 +60,4 @@ hookid: gitlint
 3: B6 Body message is missing
 
 [INFO] Restored changes from /home/andregomes/.cache/pre-commit/patch1573843897.
-
 ```
