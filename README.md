@@ -37,7 +37,6 @@ echo "This is a bad commit message" | gitlint --config myconfigfile.ini
 
 
 cat bad-commit-message | gitlint --config myconfigfile.ini 
-
 ```
 
 ## Hooks
@@ -61,5 +60,4 @@ hookid: gitlint
 3: B6 Body message is missing
 
 [INFO] Restored changes from /home/andregomes/.cache/pre-commit/patch1573843897.
-
 ```
