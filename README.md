@@ -37,6 +37,7 @@ echo "This is a bad commit message" | gitlint --config myconfigfile.ini
 
 
 cat bad-commit-message | gitlint --config myconfigfile.ini 
+
 ```
 
 ## Hooks
